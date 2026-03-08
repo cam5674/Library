@@ -103,6 +103,12 @@ button:active {
   box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
 }
 
+#book-form button {
+    font-size: 14px;
+    margin-top: 1em;
+    min-width: 70px;
+    width: auto;
+}
 
 .display-button, .new-book {
     display: flex;

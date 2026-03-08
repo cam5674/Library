@@ -14,8 +14,8 @@ function Book(title, author, pageCount) {
 }
 
 
-function addBookToLibrary (title,author) {
-    const book = new Book(title,author);
+function addBookToLibrary (title,author, pages) {
+    const book = new Book(title,author, pages);
     myLibrary.push(book);
 }
 
@@ -44,6 +44,29 @@ function showBooks(library) {
     }
 }
 
+const dialog = document.getElementById("book-dialog");
+const openBtn = document.getElementById("open-dialog");
+const closeBtn = document.getElementById("close-dialog");
+
+
+openBtn.addEventListener ("click", () => {
+    dialog.showModal();
+});
+closeBtn.addEventListener("click", () => {
+    dialog.close();
+});
+
+const form = document.getElementById("book-form");
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const title = form.title.value;
+    const author = form.author.value;
+    const pages = form.pages.value;
+
+    addBookToLibrary(title,author,pages);
+    showBooks(myLibrary);
+
+});
 addBookToLibrary("The Left Hand of Darkness", "Ursula K. Le Guin", 304);
 addBookToLibrary("The Name of the Wind", "Patrick Rothfuss", 662);
 addBookToLibrary("Never Let Me Go", "Kazuo Ishiguro", 288);

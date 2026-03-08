@@ -15,7 +15,20 @@
                 <div class="display">
                 </div>
                 <div class="display-button"><button>Display Library</button></div>
-                <div class="new-book"> <button>New Book</button></div>       
+                <div id ="open-dialog" class="new-book"> <button>New Book</button></div>
+                
+                <dialog id="book-dialog">
+                    <form id="book-form">
+                        <h3>Add a new book</h3>
+                        <label>Title: <input type="text" name="title" required></label>
+                        <label>Author: <input type="text" name="author" required></label>
+                        <label>Pages: <input type="number" name="pages" required></label>
+                         <div>
+                            <button type="submit">Add Book</button>
+                            <button type="button" id="close-dialog">Cancel</button>
+                        </div>
+                    </form>
+                </dialog>
             </div>
         </div>
     </div>
