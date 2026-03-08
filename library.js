@@ -39,7 +39,21 @@ function showBooks(library) {
         pages.classList.add("pages");
         pages.textContent = `${book.pageCount} pages`;
 
-        card.append(title, author, pages);
+        const remove = document.createElement("button");
+        remove.classList.add("card-btn");
+        remove.textContent = "Remove";
+
+        remove.addEventListener("click",() => {
+            library = library.filter(b => b.id !== book.id);
+            showBooks(library);
+        })
+        
+        const read = document.createElement("button");
+        read.classList.add("card-btn");
+        read.textContent = "Read";
+        
+
+        card.append(title, author, pages, remove, read);
         container.appendChild(card);     
     }
 }

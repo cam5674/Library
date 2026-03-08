@@ -115,3 +115,12 @@ button:active {
     justify-content: center;
     align-items: center;
 }
+
+
+.card-btn {
+    font-size: 12px;
+    margin-top: .5em;
+    min-width: 70px;
+    width: auto;
+
+} 
