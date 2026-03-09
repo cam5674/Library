@@ -13,6 +13,10 @@ function Book(title, author, pageCount) {
 
 }
 
+Book.prototype.toggleRead = function () {
+    this.isRead = !this.isRead;
+
+};
 
 function addBookToLibrary (title,author, pages) {
     const book = new Book(title,author, pages);
@@ -38,22 +42,35 @@ function showBooks(library) {
         const pages = document.createElement("div");
         pages.classList.add("pages");
         pages.textContent = `${book.pageCount} pages`;
+        
+        const readStatus = document.createElement("div");
+        readStatus.classList.add("read-status");
+        readStatus.textContent = `Status: ${book.isRead ? "Read" : "TBR"}`;
+
+        const cardButtons = document.createElement("div");
+        cardButtons.classList.add("remove-read-container");
 
         const remove = document.createElement("button");
         remove.classList.add("card-btn");
         remove.textContent = "Remove";
 
         remove.addEventListener("click",() => {
-            library = library.filter(b => b.id !== book.id);
-            showBooks(library);
+            const index = myLibrary.findIndex(b => b.id == book.id);
+            myLibrary.splice(index, 1);
+            showBooks(myLibrary);
         })
         
         const read = document.createElement("button");
         read.classList.add("card-btn");
         read.textContent = "Read";
-        
 
-        card.append(title, author, pages, remove, read);
+        read.addEventListener("click", () => {
+            book.toggleRead();
+            showBooks(library);
+        });
+         
+        cardButtons.append(read, remove);
+        card.append(title, author, pages, readStatus, cardButtons);
         container.appendChild(card);     
     }
 }

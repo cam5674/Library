@@ -70,6 +70,7 @@ html, body {
     min-height: 120px;
     display: grid;
     align-content: start;
+    box-sizing: border-box;
     gap: 6px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     
@@ -116,11 +117,15 @@ button:active {
     align-items: center;
 }
 
+.remove-read-container{
+    display: flex;
+    gap: 8px;
 
+}
 .card-btn {
     font-size: 12px;
-    margin-top: .5em;
-    min-width: 70px;
+    flex: 1;
     width: auto;
+    padding: 0.2em 0.5em;
 
 } 
